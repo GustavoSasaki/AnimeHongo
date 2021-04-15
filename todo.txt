@@ -1,0 +1,23 @@
+ponto de interogaçao -> difícil mas importante
+arrumar autentificação -> dificil, mas importante quando for lançar de verdade
+arrumar css caso screen seja celular de pé -> realmente difícil, provavelmente terá q mudar o html(como vc pode usar deitado, importancia pequena)
+alinhar header -> só visual, tenho q mecher com meu spagetti, logo difícl
+TESTAR OUTRAS CORES
+
+
+
+
+
+DEIXAR MAIS CHAMATIVO O DAR NOTA - GOOD ENOUGHT
+remover rating OK
+arrumar BRANCCCCCCCCCCO OK
+x pra sair OK
+media querry, remove padding quando pequeno OK
+arrumar japaneseStory centralizaçao com coluna OK
+melhorar o about OK
+your score ordem está zuada, rip OK
+retirar n/a quando sem logins OK, MAS VERIFICAR SE FICOU BOM COM AMIGOS
+deixar mais denso a tabela - SÓ MODIFICAR NO TABLEANIMES WEIGHT; VERIFICAR SE FICOU BOM COM AMIGOS
+deixar um about quando sem login ou sem taring - deixei para ele sem mostrar sem login
+sincronizar totalscore com o valor que vc colocou -> eu fiz, mas esta lendo; para deixálo rapido teria que fazer a conta local
+re-sorting a ordem da tabela depois de dar nota OK

@@ -1,0 +1,39 @@
+{
+    "title":"Anime Hongo",
+    
+    "pokemons":[
+    "https://cdn.bulbagarden.net/upload/thumb/a/a2/547Whimsicott.png/250px-547Whimsicott.png",
+    "https://cdn.bulbagarden.net/upload/thumb/6/68/205Forretress.png/250px-205Forretress.png",
+    "https://cdn.bulbagarden.net/upload/thumb/c/c0/303Mawile.png/250px-303Mawile.png",
+    "https://cdn.bulbagarden.net/upload/thumb/f/f5/399Bidoof.png/250px-399Bidoof.png",
+    "https://cdn.bulbagarden.net/upload/thumb/9/9b/778Mimikyu.png/250px-778Mimikyu.png"
+    ],
+    "__coment": "BK = background",
+    "theme":{
+        "BKColor" : "#282828",
+        "lettersColor" :"#ffffff",
+
+        "menuBKColor" :"#181818",
+        "menuBorderColor" :"#355d6d",
+        "menuLettersActivateColor" :"#ff7961",
+        "menuHoverColor":"#404040",
+
+        "TableHeaderBKColor" :"#181818",
+        "TableBorderColor" :"#355d6d",
+        "TableRowOddBKColor" :"#282828",
+        "TableRowEvenBKColor" :"#404040",
+        "TableMalLinkColor": "#21b6d1",
+        "TableTitleFocus": "#215769",
+
+        "FooterLetters": "#60756f",
+        "AboutBKColor": "#181818",
+        "primaryColor" : "#f44336",
+        "secundaryColor" : "#ff7961",
+
+        "OnigiriColor": "#101010",
+        "RemoveByttonColor": "#60756f"
+    },
+
+    "experimental_colors": ["#000000", "#142026", "#1c3a47", "#215769", "#24758d", "#2495b0", "#21b6d1", "#1ad9ef", "#00ffff"]
+}
+
