@@ -2,11 +2,11 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import GoogleSignIn from './GoogleSignIn';
+import GoogleSignIn from './GoogleSignInItem';
 
 const framerVariant = {
   show: { opacity: 1, y: '0' },
-  hidden: { opacity: 0, y: '-100%' },
+  hidden: { opacity: 0, y: '-100%' }
 };
 
 function HeaderMenu({ title, SetAouthInfo }) {
@@ -18,13 +18,10 @@ function HeaderMenu({ title, SetAouthInfo }) {
       initial="hidden"
       animate="show"
     >
-
       <Space width="3%" />
       <Link href="/" flexGrow="1">
         <LinkStyled>
-          <p>
-            {title}
-          </p>
+          <p>{title}</p>
         </LinkStyled>
       </Link>
 
@@ -33,9 +30,7 @@ function HeaderMenu({ title, SetAouthInfo }) {
       <Container flexGrow="1">
         <Link href="/about" flexGrow="1">
           <LinkStyled>
-            <p>
-              About
-            </p>
+            <p>About</p>
           </LinkStyled>
         </Link>
         <GoogleSignIn SetAouthInfo={SetAouthInfo} />
@@ -48,17 +43,15 @@ function HeaderMenu({ title, SetAouthInfo }) {
 
 HeaderMenu.propTypes = {
   title: PropTypes.string.isRequired,
-  SetAouthInfo: PropTypes.func.isRequired,
+  SetAouthInfo: PropTypes.func.isRequired
 };
 
 const HeaderStyled = styled.div`
-  
   border-bottom-style: solid;
   border-color: ${({ theme }) => theme.menuBorderColor};
   background-color: ${({ theme }) => theme.menuBKColor};
-  display:flex;
-  align-items:stretch;
-
+  display: flex;
+  align-items: stretch;
 `;
 
 const Container = styled.div`
@@ -66,17 +59,16 @@ const Container = styled.div`
   align-items: stretch;
   flex-grow: ${(props) => props.flexGrow};
   width: ${(props) => props.width};
-  
 `;
 
 export const LinkStyled = styled.a`
-  flex-grow:1;
+  flex-grow: 1;
   justify-content: center;
   cursor: pointer;
-  
-  color : ${({ theme }) => theme.lettersColor};
+
+  color: ${({ theme }) => theme.lettersColor};
   &:hover {
-    background-color:${({ theme }) => theme.menuHoverColor};
+    background-color: ${({ theme }) => theme.menuHoverColor};
   }
   &:active {
     color: ${({ theme }) => theme.menuLettersActivateColor};
@@ -92,8 +84,8 @@ const Space = styled.div`
 `;
 
 const MiddleSpace = styled(Space)`
-  @media(max-width: 500px) {
-    flex-grow:0.5
+  @media (max-width: 500px) {
+    flex-grow: 0.5;
   }
 `;
 export default HeaderMenu;

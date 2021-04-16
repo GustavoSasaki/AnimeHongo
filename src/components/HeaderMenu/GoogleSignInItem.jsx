@@ -1,14 +1,42 @@
-/* eslint-disable no-unused-vars */
+import { useState } from 'react';
 import styled from 'styled-components';
-
-import React from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import PropTypes from 'prop-types';
 import GoogleLogo from './GoogleLogo';
 
+// TODO: refactor this to use env vars
 const OAUTH_ID_CLIENT = '228953463372-dbd0f30dc299kin5nec84ikaf97e0qtd.apps.googleusercontent.com';
+
+const Centralize = styled.div`
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: stretch;
+
+  & > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    background-color: ${({ theme }) => theme.menuBKColor};
+    border: none;
+    padding: none;
+    color: ${({ theme }) => theme.lettersColor};
+    flex-grow: 1;
+    font-size: 16px;
+    &:hover {
+      background-color: ${({ theme }) => theme.menuHoverColor};
+    }
+
+    &:active {
+      color: ${({ theme }) => theme.menuLettersActivateColor};
+    }
+  }
+`;
+
 function GoogleSignIn({ SetAouthInfo }) {
-  const [signIn, setSignIn] = React.useState(false);
+  const [signIn, setSignIn] = useState(false);
 
   // refresh google login token
   function refreshTokenSetup(res) {
@@ -28,7 +56,7 @@ function GoogleSignIn({ SetAouthInfo }) {
     refreshTokenSetup(response);
   };
 
-  const LogOutGoogle = (response) => {
+  const LogOutGoogle = () => {
     setSignIn(false);
     SetAouthInfo(undefined);
   };
@@ -36,26 +64,24 @@ function GoogleSignIn({ SetAouthInfo }) {
   return (
     <Centralize>
       <>
-        {!signIn
-        && (
-        <GoogleLogin
-          isSignedIn
-          render={(renderProps) => (
-            <button onClick={renderProps.onClick} type="button">
-              <span>Sign In&nbsp;&nbsp;</span>
-              <GoogleLogo />
-            </button>
-          )}
-          clientId={OAUTH_ID_CLIENT}
-          buttonText="Login"
-          onSuccess={LogInnGoogle}
-          onFailure={LogOutGoogle}
-          cookiePolicy="single_host_origin"
-        />
+        {!signIn && (
+          <GoogleLogin
+            isSignedIn
+            render={(renderProps) => (
+              <button onClick={renderProps.onClick} type="button">
+                <span>Sign In&nbsp;&nbsp;</span>
+                <GoogleLogo />
+              </button>
+            )}
+            clientId={OAUTH_ID_CLIENT}
+            buttonText="Login"
+            onSuccess={LogInnGoogle}
+            onFailure={LogOutGoogle}
+            cookiePolicy="single_host_origin"
+          />
         )}
 
-        {signIn
-        && (
+        {signIn && (
           <GoogleLogout
             render={(renderProps) => (
               <button onClick={renderProps.onClick} type="button">
@@ -73,36 +99,7 @@ function GoogleSignIn({ SetAouthInfo }) {
 }
 
 GoogleSignIn.propTypes = {
-  SetAouthInfo: PropTypes.func.isRequired,
+  SetAouthInfo: PropTypes.func.isRequired
 };
-
-const Centralize = styled.div`
-  display:flex;
-  flex-grow: 1;
-  justify-content: center;
-  align-items: stretch;
-
-  &>* {
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-
-    background-color : ${({ theme }) => theme.menuBKColor};
-    border: none;
-    padding: none;
-    color : ${({ theme }) => theme.lettersColor};
-    flex-grow:1;
-    font-size:16px;
-    &:hover {
-      background-color:${({ theme }) => theme.menuHoverColor};
-    }
-
-    &:active {
-      color: ${({ theme }) => theme.menuLettersActivateColor};
-    }
-
-    }
-`;
 
 export default GoogleSignIn;
