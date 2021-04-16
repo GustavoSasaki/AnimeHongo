@@ -10,7 +10,17 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 import * as React from 'react';
+import styled from 'styled-components';
 /* eslint-enable no-unused-vars */
+
+
+const PaginationStyled = styled.div`
+  background-color : ${({ theme }) => theme.TableHeaderBKColor};
+
+  & *{
+    color: ${({ theme }) => theme.lettersColor};
+  }
+`;
 
 class MTablePaginationInner extends React.Component {
   scrollTableStart() {
@@ -56,7 +66,7 @@ class MTablePaginationInner extends React.Component {
     };
 
     return (
-      <div className={classes.root}>
+      <PaginationStyled className={classes.root}>
         {showFirstLastPageButtons && (
           <Tooltip title={localization.firstTooltip}>
             <span>
@@ -146,7 +156,7 @@ class MTablePaginationInner extends React.Component {
             </span>
           </Tooltip>
         )}
-      </div>
+      </PaginationStyled>
     );
   }
 }

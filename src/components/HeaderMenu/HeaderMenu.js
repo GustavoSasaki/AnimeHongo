@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import GoogleSignIn from './GoogleSignIn';
+import GoogleSignIn from './GoogleSignIn/GoogleSignIn';
 
 const framerVariant = {
   show: { opacity: 1, y: '0' },

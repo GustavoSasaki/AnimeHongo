@@ -23,6 +23,17 @@ import * as React from "react";
 const jsPDF = typeof window !== "undefined" ? require("jspdf").jsPDF : null;
 /* eslint-enable no-unused-vars */
 
+
+const ToolBarStyled = styled(Toolbar)`
+  background-color : ${({ theme }) => theme.TableHeaderBKColor};
+  border-bottom-style: solid;
+  border-color: ${({ theme }) => theme.menuBorderColor};
+  & *{
+    color: ${({ theme }) => theme.lettersColor};
+  }
+
+`;
+
 export class MTableToolbar extends React.Component {
   constructor(props) {
     super(props);
@@ -359,7 +370,7 @@ export class MTableToolbar extends React.Component {
         ? this.props.title
         : null;
     return (
-      <Toolbar
+      <ToolBarStyled
         className={classNames(classes.root, {
           [classes.highlight]:
             this.props.showTextRowsSelected &&
@@ -373,7 +384,7 @@ export class MTableToolbar extends React.Component {
         <div className={classes.spacer} />
         {this.props.searchFieldAlignment === "right" && this.renderSearch()}
         {this.props.toolbarButtonAlignment === "right" && this.renderActions()}
-      </Toolbar>
+      </ToolBarStyled>
     );
   }
 }

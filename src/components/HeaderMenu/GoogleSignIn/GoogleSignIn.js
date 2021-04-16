@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import React from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import PropTypes from 'prop-types';
-import GoogleLogo from './GoogleLogo';
+import GoogleLogo from './GoogleLogo/GoogleLogo';
 
 const OAUTH_ID_CLIENT = '228953463372-dbd0f30dc299kin5nec84ikaf97e0qtd.apps.googleusercontent.com';
 function GoogleSignIn({ SetAouthInfo }) {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import MalRatingLink from './MalRatingLink';
-import TotalScore from './TotalScore';
-import SelectScore from './SelectScore';
+import MalRatingLink from './MalRatingLink/MalRatingLink';
+import TotalScore from './TotalScore/TotalScore';
+import SelectScore from './SelectScore/SelectScore';
 
 const ColumnsGrow = {
   imgUrl: '10%',

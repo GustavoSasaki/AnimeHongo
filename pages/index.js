@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { server } from '../src/utils/siteUrl';
-import TableAnimes from '../src/components/TableAnimes';
-import FirstTimeText from '../src/components/FirstTimeText';
+import TableAnimes from '../src/components/TableAnimes/TableAnimes';
+import FirstTimeText from '../src/components/FirstTimeText/FirstTimeText';
 
 async function getAnimeRows({ AouthInfo }) {
   let apiUrl;

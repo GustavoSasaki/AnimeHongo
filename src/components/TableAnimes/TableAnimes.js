@@ -6,8 +6,8 @@ import MaterialTable, {
   MTableBodyRow, 
 } from '@material-table/core';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-import TablePaginationCustom from './TablePaginationCustom';
-import TableToolBarCustom from './TableToolBarCustom';
+import TablePaginationCustom from './PaginationCustom/PaginationCustom';
+import TableToolBarCustom from './ToolBarCustom/ToolBarCustom';
 
 import tableIcons from './icons';
 import ColumnsInfo from './columnsInfo';
@@ -47,6 +47,34 @@ const tableTheme = createMuiTheme({
     },
   },
 });
+
+const TableStyled = styled.div`
+
+  width:100%;
+  display: flex;
+  justify-content: center;
+
+  & > *{
+    border: ${({ theme }) => `solid ${theme.menuBorderColor}`};
+    width:90%;
+    @media(max-width: 800px) {
+      width: 100%;
+    }
+  }
+  & > * *{
+    border: none;
+  }
+`;
+
+const TableRowStyled = styled(MTableBodyRow)`
+
+  :nth-child(odd){
+    background-color : ${({ theme }) => theme.TableRowOddBKColor};
+  }
+  :nth-child(even){
+    background-color : ${({ theme }) => theme.TableRowEvenBKColor};
+  }
+`;
 
 // every row from db has one animesInfo
 function TableAnimes({ animeRows, AouthInfo, getAnimeRows }) {
@@ -143,16 +171,8 @@ function TableAnimes({ animeRows, AouthInfo, getAnimeRows }) {
           data={tableData}
           components={{
             Row: (props) => (<TableRowStyled {...props} />),
-            Toolbar: (props) => (
-              <ToolBarStyled>
-                <TableToolBarCustom {...props} />
-              </ToolBarStyled>
-            ),
-            Pagination: (props) => (
-              <PaginationStyled>
-                <TablePaginationCustom {...props} />
-              </PaginationStyled>
-            ),
+            Toolbar: (props) => <TableToolBarCustom {...props} />,
+            Pagination: (props) => <TablePaginationCustom {...props} />,
           }}
           options={{
             pageSize: 10,
@@ -190,51 +210,5 @@ TableAnimes.propTypes = {
   })).isRequired,
   getAnimeRows: PropTypes.func.isRequired,
 };
-
-const TableStyled = styled.div`
-
-  width:100%;
-  display: flex;
-  justify-content: center;
-
-  & > *{
-    border: ${({ theme }) => `solid ${theme.menuBorderColor}`};
-    width:90%;
-    @media(max-width: 800px) {
-      width: 100%;
-    }
-  }
-  & > * *{
-    border: none;
-  }
-`;
-
-const TableRowStyled = styled(MTableBodyRow)`
-
-  :nth-child(odd){
-    background-color : ${({ theme }) => theme.TableRowOddBKColor};
-  }
-  :nth-child(even){
-    background-color : ${({ theme }) => theme.TableRowEvenBKColor};
-  }
-`;
-
-const ToolBarStyled = styled.div`
-  background-color : ${({ theme }) => theme.TableHeaderBKColor};
-  border-bottom-style: solid;
-  border-color: ${({ theme }) => theme.menuBorderColor};
-  & *{
-    color: ${({ theme }) => theme.lettersColor};
-  }
-
-`;
-
-const PaginationStyled = styled.div`
-  background-color : ${({ theme }) => theme.TableHeaderBKColor};
-
-  & *{
-    color: ${({ theme }) => theme.lettersColor};
-  }
-`;
 
 export default TableAnimes;

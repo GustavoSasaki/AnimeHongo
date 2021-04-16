@@ -4,8 +4,8 @@ import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 
 import db from '../src/db/styleDb.json';
-import HeaderMenu from '../src/components/HeaderMenu';
-import Footer from '../src/components/Footer';
+import HeaderMenu from '../src/components/HeaderMenu/HeaderMenu';
+import Footer from '../src/components/Footer/Footer';
 
 const { theme } = db;
 
