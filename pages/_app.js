@@ -9,6 +9,44 @@ import Footer from '../src/components/Footer/Footer';
 
 const { theme } = db;
 
+const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nimbus Romans';
+  }
+  
+  body {
+    background-color:${() => theme.BKColor};
+  }
+`;
+
+const Body = styled.div`
+  display: grid;
+  grid-gap: 30px;
+
+  min-height: 100vh;
+
+  grid-template-areas:
+    'h'
+    'b'
+    'f';
+
+  grid-template-columns: 1fr;
+  grid-template-rows: 40px auto 40px;
+`;
+
+const HeaderStyled = styled(HeaderMenu)`
+  grid-area: h;
+`;
+
+const FooterStyled = styled(Footer)`
+  grid-area: f;
+`;
+const Table = styled.div`
+  grid-area: b;
+`;
+
 export default function App({ Component, pageProps }) {
   const [AouthInfo, SetAouthInfo] = React.useState(undefined);
   pageProps.AouthInfo = AouthInfo;
@@ -35,42 +73,3 @@ export default function App({ Component, pageProps }) {
     </ThemeProvider>
   );
 }
-
-const GlobalStyle = createGlobalStyle`
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Nimbus Romans'
-  }
-  body {
-    background-color:${() => theme.BKColor}
-  }
-`;
-
-const Body = styled.body`
-  display: grid;
-  grid-gap: 30px;
-
-  min-height: 100vh;
-
-  grid-template-areas: 
-      'h'
-      'b'
-      'f';
-
-  grid-template-columns: 1fr;
-  grid-template-rows: 40px auto 40px;
-`;
-
-const HeaderStyled = styled(HeaderMenu)`
-  grid-area: h ;
-
-`;
-
-const FooterStyled = styled(Footer)`
-  grid-area: f;
-
-`;
-const Table = styled.div`
-  grid-area:b;
-`;
