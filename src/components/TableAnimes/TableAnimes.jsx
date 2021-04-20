@@ -6,11 +6,11 @@ import MaterialTable, {
   MTableBodyRow, 
 } from '@material-table/core';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-import TablePaginationCustom from './PaginationCustom/PaginationCustom';
-import TableToolBarCustom from './ToolBarCustom/ToolBarCustom';
+import TablePaginationCustom from './PaginationCustom';
+import TableToolBarCustom from './ToolBarCustom';
 
 import tableIcons from './icons';
-import ColumnsInfo from './columnsInfo';
+import ColumnsInfo from './columnInfo/columnsInfo';
 import db from '../../db/styleDb.json';
 import { server } from '../../utils/siteUrl';
 

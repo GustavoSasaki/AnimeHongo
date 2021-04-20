@@ -2,9 +2,10 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import PropTypes from 'prop-types';
-import GoogleLogo from './GoogleLogo/GoogleLogo';
+import GoogleLogo from './GoogleLogo';
 
 // TODO: refactor this to use env vars
+// I dont know how to doit, the REACT_APP_OAUTH_ID_CLIENT is every time undefined
 const OAUTH_ID_CLIENT = '228953463372-dbd0f30dc299kin5nec84ikaf97e0qtd.apps.googleusercontent.com';
 
 const Centralize = styled.div`
@@ -38,6 +39,7 @@ const Centralize = styled.div`
 function GoogleSignIn({ SetAouthInfo }) {
   const [signIn, setSignIn] = useState(false);
 
+  
   // refresh google login token
   function refreshTokenSetup(res) {
     let refreshTiming = (res.tokenObj.expire_in || 3600 - 5 * 60) * 1000;
@@ -80,7 +82,7 @@ function GoogleSignIn({ SetAouthInfo }) {
             cookiePolicy="single_host_origin"
           />
         )}
-
+        <p>{process.env.REACT_APP_OAUTH_ID_CLIENT}</p>
         {signIn && (
           <GoogleLogout
             render={(renderProps) => (

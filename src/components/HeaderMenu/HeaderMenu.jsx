@@ -2,11 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-<<<<<<< HEAD:src/components/HeaderMenu/HeaderMenu.js
-import GoogleSignIn from './GoogleSignIn/GoogleSignIn';
-=======
 import GoogleSignIn from './GoogleSignInItem';
->>>>>>> 8e4a3878fb4a90bc18c03527846aaaeb35ad3300:src/components/HeaderMenu/HeaderMenu.jsx
 
 const framerVariant = {
   show: { opacity: 1, y: '0' },

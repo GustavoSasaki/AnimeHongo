@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import CloseIcon from '@material-ui/icons/Close';
-import Onigiri from './Onigiri/Onigi';
-import db from '../../../db/styleDb.json';
-import { levelToNames } from '../../../utils/levelsInfo';
+import Onigiri from './Onigiri';
+import db from '../../../../db/styleDb.json';
+import { levelToNames } from '../../../../utils/levelsInfo';
 
 const { theme } = db;
 
